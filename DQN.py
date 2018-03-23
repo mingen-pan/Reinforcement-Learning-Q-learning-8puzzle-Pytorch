@@ -85,6 +85,7 @@ class RL_training():
         sucess_count = 0
         for i in range(epochs):
             if i%record_sections ==0:
+                print('\n')
                 print("epoch is %d" %(i))
                 print("epsilon is %.2f" % self.epsilon)
                 print("success rate: %.2f" % (sucess_count/record_sections*100))
