@@ -1,4 +1,4 @@
-# RL-Q-learning-8puzzle-Pytorch
+# Reinforcement-Learning-Q-learning-8puzzle-Pytorch
 This is a project using neural-network reinforcement learning to solve the 8 puzzle problem (or even N puzzle)
 
 If you want to know what is the 8 puzzle problem, please look at:
