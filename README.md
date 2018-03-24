@@ -42,3 +42,136 @@ The last step is to train and test the DQN:
 The 10001 and 1000 mean traning epoches and the output will be printed every 1000 epoches.
 
 Given the above parameters and training, the network can achieve 75% success rate to solve a 8 puzzle in 20 steps. The difficulty (manhattan distance of the starting puzzle) is 10. If you give such a puzzle to a human and ask him/her to solve in 20 steps, it is likely that they would fail. After fine tuning and more traning, the success rate can reach 85%, which is smart enough compared to me.
+
+
+Here is an example how the Q learning solves the 8 puzzle in a prefect way:
+```
+Initial State:
+
+ 1  8  0
+ 4  3  2
+ 7  6  5
+[torch.IntTensor of size 3x3]
+
+
+-33.4408 -42.0156 -44.3450 -41.6370
+[torch.FloatTensor of size 1x4]
+
+distance:  10
+Move #: 0; Taking action: 0
+
+ 1  8  2
+ 4  3  0
+ 7  6  5
+[torch.IntTensor of size 3x3]
+
+
+-43.7496 -46.2655 -42.9442 -45.4692
+[torch.FloatTensor of size 1x4]
+
+distance:  9
+Move #: 1; Taking action: 2
+
+ 1  8  2
+ 4  0  3
+ 7  6  5
+[torch.IntTensor of size 3x3]
+
+
+-31.5128 -17.3894 -37.5328 -28.5738
+[torch.FloatTensor of size 1x4]
+
+distance:  8
+Move #: 2; Taking action: 1
+
+ 1  0  2
+ 4  8  3
+ 7  6  5
+[torch.IntTensor of size 3x3]
+
+
+-27.4439 -28.7143 -33.4939 -12.0024
+[torch.FloatTensor of size 1x4]
+
+distance:  7
+Move #: 3; Taking action: 3
+
+ 1  2  0
+ 4  8  3
+ 7  6  5
+[torch.IntTensor of size 3x3]
+
+
+ -6.5040 -13.7535 -13.2515  -7.2390
+[torch.FloatTensor of size 1x4]
+
+distance:  6
+Move #: 4; Taking action: 0
+
+ 1  2  3
+ 4  8  0
+ 7  6  5
+[torch.IntTensor of size 3x3]
+
+
+-2.5222 -8.6801 -4.6879 -6.2299
+[torch.FloatTensor of size 1x4]
+
+distance:  5
+Move #: 5; Taking action: 0
+
+ 1  2  3
+ 4  8  5
+ 7  6  0
+[torch.IntTensor of size 3x3]
+
+
+-9.5404 -9.4426  1.5755 -9.6195
+[torch.FloatTensor of size 1x4]
+
+distance:  4
+Move #: 6; Taking action: 2
+
+ 1  2  3
+ 4  8  5
+ 7  0  6
+[torch.IntTensor of size 3x3]
+
+
+-4.7309  5.7080 -3.8861 -1.9533
+[torch.FloatTensor of size 1x4]
+
+distance:  3
+Move #: 7; Taking action: 1
+
+ 1  2  3
+ 4  0  5
+ 7  8  6
+[torch.IntTensor of size 3x3]
+
+
+ 0.3997 -5.7986  1.2636  7.6686
+[torch.FloatTensor of size 1x4]
+
+distance:  2
+Move #: 8; Taking action: 3
+
+ 1  2  3
+ 4  5  0
+ 7  8  6
+[torch.IntTensor of size 3x3]
+
+
+ 9.7120  3.6771  6.5884  6.5222
+[torch.FloatTensor of size 1x4]
+
+distance:  1
+Move #: 9; Taking action: 0
+
+ 1  2  3
+ 4  5  6
+ 7  8  0
+[torch.IntTensor of size 3x3]
+
+Reward: 10
+```
